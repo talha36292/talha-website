@@ -3,578 +3,778 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ============================================================
-       EDIT: PAGE TITLE (shows in browser tab and Google search)
-       ============================================================ -->
-  <title>Talha Bin Aslam — IIIT-Delhi</title>
-
-  <!-- ============================================================
-       EDIT: PAGE DESCRIPTION (shows in Google search results)
-       ============================================================ -->
-  <meta name="description" content="PhD Scholar at IIIT-Delhi researching SRAM memory architectures and compute-in-memory for AI/ML acceleration." />
+  <title>Talha Bin Aslam</title>
+  <meta name="description" content="PhD Scholar at IIIT-Delhi (VICAS Lab) researching SRAM memory architectures and compute-in-memory for AI/ML acceleration." />
+  <meta name="keywords" content="Talha Bin Aslam, IIIT-Delhi, VICAS Lab, SRAM, Compute-in-Memory, In-Memory Computing, VLSI, Anuj Grover, AnalogSim, Aligarh Muslim University, STMicroelectronics, IEEE ISCAS, TENSYMP, VDAT" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* ============================================================
-       COLORS & THEME — change these to retheme the whole site
-       ============================================================ */
     :root {
-      --bg:          #fbfaf7;
-      --bg-elev:     #ffffff;
-      --ink:         #1c1917;
-      --muted:       #57534e;
-      --faint:       #a8a29e;
-      --rule:        #e7e5e4;
-      --rule-strong: #d6d3d1;
-      --accent:      #7c1d1d;
-      --accent-soft: #fbeeee;
-      --max-width:   860px;
+      --bg:          #ffffff;
+      --bg-soft:     #fafafa;
+      --bg-row:      #f8f9fb;
+      --ink:         #2c3e50;
+      --ink-soft:    #444;
+      --muted:       #6c757d;
+      --rule:        #e5e7eb;
+      --rule-soft:   #eef0f3;
+      --link:        #2563eb;
+      --link-hover:  #1d4ed8;
+      --accent:      #0f766e;
+      --max-content: 1180px;
+
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Source Sans 3', system-ui, -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
-      font-optical-sizing: auto;
-      font-weight: 380;
-      font-size: 18px;
+      font-family: var(--sans);
+      font-size: 16px;
       line-height: 1.65;
       color: var(--ink);
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
-      background-image:
-        radial-gradient(at 12% 8%, rgba(124, 29, 29, 0.04) 0px, transparent 50%),
-        radial-gradient(at 88% 92%, rgba(124, 29, 29, 0.03) 0px, transparent 50%);
-      background-attachment: fixed;
+      animation: pageFadeIn 0.5s ease-out;
+    }
+    @keyframes pageFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
 
-    .wrap { max-width: var(--max-width); margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
 
-    /* HEADER ---------------------------------------------------- */
-    header.hero {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2.25rem;
+    /* =====================================================
+       TOP NAV BAR
+       ===================================================== */
+    .topbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .topbar-inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
       align-items: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid var(--ink);
-      margin-bottom: 2.5rem;
-      position: relative;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    header.hero::after {
-      content: ""; position: absolute;
-      left: 0; right: 0; bottom: -6px;
-      height: 1px; background: var(--ink);
+    .topbar .brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .topbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+    }
+    .topbar nav a {
+      color: var(--ink-soft);
+      font-size: 0.93rem;
+      font-weight: 400;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .topbar nav a:hover {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom-color: var(--link);
     }
 
-    .photo {
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      color: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 4rem; font-weight: 500; font-style: italic;
-      border: 1px solid var(--rule-strong);
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 24px rgba(0,0,0,0.04);
+    /* =====================================================
+       MAIN LAYOUT — sidebar + content
+       ===================================================== */
+    .container {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
     }
-    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .id h1 {
-      font-weight: 500; font-size: 2.75rem; line-height: 1.05;
-      letter-spacing: -0.015em; margin-bottom: 0.5rem;
+    /* =====================================================
+       SIDEBAR
+       ===================================================== */
+    aside.sidebar {
+      position: sticky;
+      top: 5rem;
+      align-self: start;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      padding-right: 0.25rem;
     }
-    .id .role { color: var(--muted); font-size: 1.1rem; font-style: italic; margin-bottom: 1rem; }
-    .id .role a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
-    .id .role a:hover { color: var(--accent); border-color: var(--accent); }
 
-    .quick-contact {
-      display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--muted);
-    }
-    .quick-contact a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--rule-strong); padding-bottom: 1px; }
-    .quick-contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-    /* NAV ------------------------------------------------------- */
-    nav.toc {
-      display: flex; flex-wrap: wrap; gap: 0.4rem 1.75rem;
-      margin-bottom: 3.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase;
-    }
-    nav.toc a { color: var(--muted); text-decoration: none; padding: 0.2rem 0; border-bottom: 1px solid transparent; transition: 0.15s; }
-    nav.toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-    nav.toc a::before { content: "§ "; color: var(--faint); }
-
-    /* SECTIONS -------------------------------------------------- */
-    section { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
-    h2 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem; padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--rule-strong);
-      display: flex; align-items: baseline; gap: 0.75rem;
-    }
-    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
-
-    h3 { font-size: 1.15rem; font-weight: 500; margin-bottom: 0.15rem; line-height: 1.35; color: var(--ink); }
-    p { margin-bottom: 1rem; } p:last-child { margin-bottom: 0; }
-
-    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: border-color 0.15s; }
-    a:hover { border-bottom-color: var(--accent); }
-    em { font-style: italic; color: var(--muted); }
-    strong { font-weight: 600; }
-
-    /* ENTRY ----------------------------------------------------- */
-    .entry {
-      display: grid; grid-template-columns: 7rem 1fr; gap: 1.5rem;
-      margin-bottom: 1.75rem; padding-bottom: 1.75rem;
-      border-bottom: 1px dotted var(--rule-strong);
-    }
-    .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .entry .year { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); padding-top: 0.45rem; line-height: 1.4; }
-    .entry .body .meta { color: var(--muted); font-size: 0.95rem; font-style: italic; margin-bottom: 0.5rem; }
-    .entry .body ul { margin-top: 0.6rem; margin-left: 1.1rem; }
-    .entry .body li { margin-bottom: 0.4rem; font-size: 0.96rem; line-height: 1.55; }
-
-    .stat {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; color: var(--accent);
-      background: var(--accent-soft);
-      padding: 0.15rem 0.5rem; border-radius: 2px;
-      margin-right: 0.4rem; letter-spacing: 0.04em; vertical-align: 2px;
-    }
-    .venue {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; color: var(--accent);
-      text-transform: uppercase; letter-spacing: 0.08em;
-      display: inline-block; margin-top: 0.5rem;
-      padding: 0.15rem 0.55rem; background: var(--accent-soft);
-      border: 1px solid rgba(124, 29, 29, 0.12); border-radius: 2px;
-    }
-    .authors { font-size: 0.95rem; color: var(--muted); font-style: italic; margin-top: 0.25rem; }
-    .authors .me { color: var(--ink); font-style: normal; font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
-
-    /* SKILLS ---------------------------------------------------- */
-    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-    .skill-cat {
-      background: var(--bg-elev);
+    .side-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1.05;
+      background: linear-gradient(135deg, #e0f2fe, #fef3c7);
       border: 1px solid var(--rule);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 5rem;
+      color: var(--accent);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .side-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .side-name {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .side-title {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .side-section-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .side-affil {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+
+    ul.side-links {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+    ul.side-links li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--rule-soft);
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    ul.side-links li:last-child { border-bottom: none; }
+    ul.side-links li .ico {
+      width: 18px;
+      flex-shrink: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    ul.side-links a {
+      color: var(--ink-soft);
+    }
+    ul.side-links a:hover { color: var(--link); }
+
+    /* =====================================================
+       MAIN CONTENT
+       ===================================================== */
+    main.content {
+      min-width: 0;
+    }
+
+    .greeting {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 1.25rem;
+    }
+    .greeting p { margin-bottom: 0.9rem; }
+    .greeting strong { color: var(--ink); font-weight: 600; }
+    .greeting em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+    .wave-emoji {
+      display: inline-block;
+      animation: wave 2.5s ease-in-out 2;
+      transform-origin: 70% 70%;
+    }
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0); }
+      10%, 30%      { transform: rotate(14deg); }
+      20%, 40%      { transform: rotate(-8deg); }
+      50%           { transform: rotate(10deg); }
+    }
+
+    blockquote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
       border-left: 3px solid var(--accent);
-      padding: 1rem 1.1rem; border-radius: 2px;
+      background: var(--bg-soft);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+      border-radius: 0 4px 4px 0;
     }
-    .skill-cat h4 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.6rem;
+    blockquote cite {
+      display: block;
+      font-style: normal;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
     }
-    .skill-cat .items { font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
-    .skill-cat .items span:not(:last-child)::after { content: " · "; color: var(--faint); font-weight: bold; }
+    blockquote cite::before { content: "— "; }
 
-    /* INTERESTS ------------------------------------------------- */
-    .interests { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .interests span {
-      font-size: 0.92rem; padding: 0.35rem 0.75rem;
-      background: var(--bg-elev); border: 1px solid var(--rule-strong);
-      border-radius: 999px; color: var(--ink);
+    /* Section headings */
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+      letter-spacing: -0.005em;
     }
-    .interests span::before { content: "▸ "; color: var(--accent); font-size: 0.85em; }
+    h2:first-of-type { margin-top: 2rem; }
 
-    /* CONTACT --------------------------------------------------- */
-    .contact-grid { display: grid; grid-template-columns: 7rem 1fr; gap: 0.85rem 1.5rem; font-size: 1rem; }
-    .contact-grid dt {
-      color: var(--muted); font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; text-transform: uppercase;
-      letter-spacing: 0.1em; padding-top: 0.4rem;
+    h3 {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 1.25rem;
+      margin-bottom: 0.4rem;
     }
 
-    /* FOOTER ---------------------------------------------------- */
+    /* =====================================================
+       TABLES — classic academic look
+       ===================================================== */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+    }
+    table th {
+      background: var(--bg-row);
+      color: var(--ink);
+      font-weight: 600;
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--rule);
+      white-space: nowrap;
+    }
+    table td {
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid var(--rule-soft);
+      vertical-align: top;
+      color: var(--ink-soft);
+    }
+    table tr:last-child td { border-bottom: none; }
+    table tr:hover td { background: var(--bg-row); }
+
+    table .timeline-cell {
+      font-family: var(--sans);
+      font-weight: 500;
+      color: var(--ink);
+      white-space: nowrap;
+      min-width: 8rem;
+    }
+
+    /* =====================================================
+       LISTS (Research interests, Education)
+       ===================================================== */
+    .content ul.bullet-list {
+      list-style: none;
+      margin: 0.6rem 0 1rem;
+    }
+    .content ul.bullet-list li {
+      padding: 0.35rem 0 0.35rem 1.4rem;
+      position: relative;
+      font-size: 0.97rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .content ul.bullet-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0.2rem;
+      top: 0.35rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .content ul.bullet-list li strong { color: var(--ink); }
+
+    /* Publication item */
+    .pub-item {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--rule-soft);
+      font-size: 0.95rem;
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-item .pub-title {
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+    .pub-item .pub-authors {
+      color: var(--ink-soft);
+      font-size: 0.93rem;
+      margin-bottom: 0.25rem;
+    }
+    .pub-item .pub-authors .me {
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 2px;
+    }
+    .pub-item .pub-venue {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .pub-item .pub-venue .venue-tag {
+      display: inline-block;
+      font-style: normal;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--bg-row);
+      border: 1px solid var(--rule);
+      color: var(--accent);
+      padding: 0.05rem 0.45rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+      vertical-align: 2px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
     footer {
-      margin-top: 5rem; padding-top: 2rem;
-      border-top: 1px solid var(--rule-strong);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; color: var(--faint);
-      letter-spacing: 0.05em; text-transform: uppercase;
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: var(--bg-soft);
     }
 
-    /* MOBILE ---------------------------------------------------- */
-    @media (max-width: 700px) {
-      .wrap { padding: 2rem 1.25rem 4rem; }
-      header.hero { grid-template-columns: 1fr; text-align: left; gap: 1.5rem; }
-      .photo { width: 120px; height: 120px; font-size: 3rem; }
-      .id h1 { font-size: 2rem; }
-      .entry { grid-template-columns: 1fr; gap: 0.5rem; }
-      .entry .year { padding-top: 0; }
-      .contact-grid { grid-template-columns: 1fr; gap: 0.2rem; }
-      .contact-grid dt { padding-top: 0.85rem; }
-      .skills { grid-template-columns: 1fr; }
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+    @media (max-width: 840px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem 1rem 3rem;
+      }
+      aside.sidebar {
+        position: static;
+        max-height: none;
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+      .side-photo {
+        width: 110px;
+        height: 110px;
+        aspect-ratio: 1;
+        font-size: 3rem;
+        grid-row: span 4;
+      }
+      .side-name { font-size: 1.2rem; margin-bottom: 0.2rem; }
+      .side-title { font-size: 0.85rem; margin-bottom: 0; }
+      .side-section-label { margin-top: 0.75rem; }
+      ul.side-links {
+        grid-column: 1 / -1;
+        margin-top: 0.5rem;
+      }
+      .side-affil { grid-column: 2; }
+      .topbar-inner { padding: 0.65rem 1rem; }
+      .topbar nav { gap: 0 0.85rem; font-size: 0.85rem; }
+      .topbar nav a { font-size: 0.85rem; }
+      h2 { font-size: 1.3rem; }
+      table { font-size: 0.85rem; }
+      table th, table td { padding: 0.5rem 0.6rem; }
     }
-
-    /* PAGE LOAD ------------------------------------------------- */
-    .wrap > * { animation: fadeUp 0.55s ease-out both; }
-    .wrap > *:nth-child(1) { animation-delay: 0s; }
-    .wrap > *:nth-child(2) { animation-delay: 0.06s; }
-    .wrap > *:nth-child(3) { animation-delay: 0.12s; }
-    .wrap > *:nth-child(4) { animation-delay: 0.18s; }
-    .wrap > *:nth-child(5) { animation-delay: 0.24s; }
-    .wrap > *:nth-child(6) { animation-delay: 0.30s; }
-    .wrap > *:nth-child(7) { animation-delay: 0.36s; }
-    .wrap > *:nth-child(8) { animation-delay: 0.42s; }
-    .wrap > *:nth-child(9) { animation-delay: 0.48s; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 
 <body>
-<div class="wrap">
 
   <!-- ==========================================================
-       HEADER  —  ✏️ EDIT NAME, ROLE, AND PHOTO HERE
+       TOP NAV BAR
        ========================================================== -->
-  <header class="hero">
-    <!--  📷  TO ADD YOUR PHOTO:
-          1. Put a square photo named  photo.jpg  in the SAME folder as this file.
-          2. Replace the next line with:
-             <div class="photo"><img src="photo.jpg" alt="Talha Bin Aslam"></div>
-    -->
-    <div class="photo">T</div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span class="brand">Talha Bin Aslam</span>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#interests">Interests</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#honors">Honors</a>
+      </nav>
+    </div>
+  </div>
 
-    <div class="id">
-      <h1>Talha Bin Aslam</h1>
-      <p class="role">
-        PhD Scholar, Electronics &amp; Communication Engineering<br>
-        <a href="https://iiitd.ac.in" target="_blank" rel="noopener">Indraprastha Institute of Information Technology, Delhi</a>
-      </p>
+  <div class="container">
 
-      <div class="quick-contact">
-        <a href="mailto:talhaa@iiitd.ac.in">✉ talhaa@iiitd.ac.in</a>
-        <a href="tel:+918439466929">☎ +91 8439 466 929</a>
-        <span>⌖ Delhi, India</span>
+    <!-- ========================================================
+         SIDEBAR — photo, name, affiliation, contact links
+         ✏️ Photo and contact links are edited here
+         ======================================================== -->
+    <aside class="sidebar">
+      <!-- 📷 TO ADD YOUR PHOTO:
+           1. Upload a photo named  photo.jpg  to the same folder as this file
+           2. Replace this entire <div class="side-photo">…</div> block with:
+              <div class="side-photo"><img src="photo.jpg" alt="Talha Bin Aslam"></div>
+      -->
+      <div class="side-photo"><img src="talha_binaslam.png" alt="Talha Bin Aslam"></div>
+      
+
+      <div class="side-name">Talha Bin Aslam</div>
+      <div class="side-title">
+        PhD Scholar in Electronics &amp; Communication Engineering
       </div>
-    </div>
-  </header>
 
-  <!-- ==========================================================
-       NAV
-       ========================================================== -->
-  <nav class="toc">
-    <a href="#about">About</a>
-    <a href="#interests">Interests</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#publications">Publications</a>
-    <a href="#skills">Skills</a>
-    <a href="#honors">Honors</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- ==========================================================
-       ABOUT
-       ========================================================== -->
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I am a PhD Scholar at <strong>IIIT-Delhi</strong>, working with
-      <strong>Dr.&nbsp;Anuj Grover</strong> on SRAM memory architectures and modeling for
-      compute-in-memory (CIM). My research spans bitcell-level circuit design,
-      sense-amplifier characterization, peripheral I/O, and a Python-based modeling
-      framework (<em>AnalogSim</em>) for benchmarking analog in-memory computing
-      architectures targeting AI/ML acceleration.
-    </p>
-    <p>
-      Previously, I was a Research Intern at <strong>STMicroelectronics</strong>
-      (Greater Noida), where I developed behavioral and analytical noise models for
-      SRAM memory subsystems and worked alongside silicon and SoC design teams on
-      memory subsystem characterization. I hold an M.Tech in Electronics Circuit &amp;
-      System Design from Aligarh Muslim University, where I was a UGC-GATE
-      Scholarship recipient.
-    </p>
-  </section>
-
-  <!-- ==========================================================
-       RESEARCH INTERESTS
-       ========================================================== -->
-  <section id="interests">
-    <h2>Research Interests</h2>
-    <div class="interests">
-      <span>SRAM-based In-Memory Computing</span>
-      <span>Custom bitcell design (6T, 10T1C)</span>
-      <span>Sense amplifier offset characterization</span>
-      <span>Analog &amp; Digital CIM architectures</span>
-      <span>Memory subsystem modeling</span>
-      <span>DNN inference accelerators</span>
-      <span>Low-power CMOS circuit design</span>
-      <span>65 nm LSTP technology</span>
-    </div>
-  </section>
-
-  <!-- ==========================================================
-       EDUCATION
-       ========================================================== -->
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="entry">
-      <div class="year">Jan 2022<br>– Present</div>
-      <div class="body">
-        <h3>Ph.D., Electronics &amp; Communication Engineering</h3>
-        <p class="meta">Indraprastha Institute of Information Technology, Delhi (IIIT-Delhi)</p>
-        <p>
-          <span class="stat">CPI 8.09 / 10</span>
-          Advisor: Dr.&nbsp;Anuj Grover. Research focus: SRAM memory architectures
-          and modeling for compute-in-memory.
-        </p>
+      <div class="side-section-label">Affiliation</div>
+      <div class="side-affil">
+        <strong>VICAS Lab</strong><br>
+        <a href="https://iiitd.ac.in" target="_blank" rel="noopener">IIIT-Delhi</a><br>
+        Advisor: Dr. Anuj Grover
       </div>
-    </div>
 
-    <div class="entry">
-      <div class="year">2019 – 2021</div>
-      <div class="body">
-        <h3>M.Tech, Electronics Circuit &amp; System Design</h3>
-        <p class="meta">Aligarh Muslim University (AMU), Aligarh</p>
-        <p>
-          <span class="stat">CPI 9.08 / 10</span>
-          UGC-GATE Scholarship recipient.
-        </p>
-      </div>
-    </div>
+      <div class="side-section-label">Connect</div>
+      <ul class="side-links">
+        <li><span class="ico">✉</span><a href="mailto:talhaa@iiitd.ac.in">talhaa@iiitd.ac.in</a></li>
+        <li><span class="ico">☎</span><a href="tel:+918439466929">+91 8439 466 929</a></li>
+        <li><span class="ico">⌖</span><span>Delhi, India</span></li>
+        <li><span class="ico">in</span><a href="https://www.linkedin.com/in/talha-bin-aslam-582082189/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><span class="ico">🎓</span><a href="https://scholar.google.com/citations?hl=en&user=ghOV1JQAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+      </ul>
+    </aside>
 
-    <div class="entry">
-      <div class="year">2015 – 2019</div>
-      <div class="body">
-        <h3>B.Tech, Electronics Engineering</h3>
-        <p class="meta">Aligarh Muslim University (AMU), Aligarh</p>
-        <p><span class="stat">CPI 7.16 / 10</span></p>
-      </div>
-    </div>
-  </section>
+    <!-- ========================================================
+         MAIN CONTENT
+         ======================================================== -->
+    <main class="content">
 
-  <!-- ==========================================================
-       EXPERIENCE
-       ========================================================== -->
-  <section id="experience">
-    <h2>Research &amp; Professional Experience</h2>
+      <!-- ABOUT / INTRO -->
+      <section id="about">
+        <div class="greeting">
+          <p>
+            <span class="wave-emoji">👋</span> Hello, I'm <strong>Talha Bin Aslam</strong>,
+            a PhD Scholar at the VICAS Lab, <strong>IIIT-Delhi</strong>, working under
+            the supervision of <strong>Dr.&nbsp;Anuj Grover</strong>. My research is on
+            SRAM memory architectures and modeling for <em>compute-in-memory (CIM)</em>,
+            with a focus on accelerating AI and machine learning workloads.
+          </p>
+          <p>
+            🎓 I earned my <strong>M.Tech in Electronics Circuit and System Design</strong>
+            from <strong>Aligarh Muslim University</strong> (CPI 9.08 / 10) in 2021 as a
+            UGC-GATE Scholarship recipient, after completing my B.Tech in Electronics
+            Engineering at the same institution.
+          </p>
+          <p>
+            🔬 From September 2023 to September 2024, I was a Research Intern at
+            <strong>STMicroelectronics</strong>, Greater Noida, where I developed behavioral
+            and analytical noise models for SRAM memory subsystems and collaborated with
+            cross-functional silicon and SoC design teams on memory subsystem
+            characterization using Cadence and Synopsys tool flows.
+          </p>
+          <p>
+            💡 My research interests lie in <strong>SRAM bitcell design</strong> (6T and
+            custom 10T1C), <strong>sense amplifier characterization</strong>,
+            <strong>peripheral I/O</strong>, and Python-based modeling frameworks. I
+            architected <em>AnalogSim</em>, a modeling and verification framework for
+            SRAM-based memory architectures published at IEEE ISCAS 2025.
+          </p>
+          <p>
+            🏆 I am a recipient of the <strong>IEEE SSCS Student Travel Grant</strong>
+            ($2,000) to attend ISSCC in San Francisco, and previously the UGC-GATE
+            Scholarship throughout my M.Tech.
+          </p>
+        </div>
 
-    <div class="entry">
-      <div class="year">Sep 2023<br>– Sep 2024</div>
-      <div class="body">
-        <h3>Research Intern</h3>
-        <p class="meta">STMicroelectronics, Greater Noida</p>
-        <ul>
-          <li>Developed behavioral and analytical noise models for SRAM memory subsystems.</li>
-          <li>Collaborated with cross-functional silicon and SoC design teams on memory
-              subsystem characterization using Cadence and Synopsys tool flows.</li>
+        <blockquote>
+          The future of computing isn't about moving data faster — it's about not
+          moving data at all. Memory is no longer just storage; it is the engine.
+          <cite>Talha Bin Aslam</cite>
+        </blockquote>
+      </section>
+
+      <!-- NEWS AND HIGHLIGHTS -->
+      <section id="news">
+        <h2>News and Highlights</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Timeline</th>
+                <th>News</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="timeline-cell">2025</td>
+                <td>Awarded the <strong>IEEE SSCS Student Travel Grant ($2,000)</strong> to attend ISSCC, San Francisco, USA.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2025</td>
+                <td>Paper titled "<strong>AnalogSim: A Modeling Framework for SRAM-based Analog In-Memory Computing</strong>" accepted at IEEE ISCAS 2025, London, UK.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2025</td>
+                <td>Paper titled "<strong>MeMu-Link: A Simulink Tool for Enhanced Design Exploration of IMC Architectures</strong>" accepted at IEEE VDAT.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Sep 2024</td>
+                <td>Completed one-year Research Internship at <strong>STMicroelectronics</strong>, Greater Noida (Sep 2023 – Sep 2024).</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2024</td>
+                <td>Paper titled "<strong>Investigating the Impact of Differential Voltage and Sense Amplifier Offset on Power and Delay of SRAM in 65 nm LSTP Technology</strong>" accepted at IEEE TENSYMP 2024, New Delhi.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Sep 2023</td>
+                <td>Joined <strong>STMicroelectronics</strong>, Greater Noida, as Research Intern for SRAM memory subsystem noise modeling.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Jan 2022</td>
+                <td>Began PhD in Electronics &amp; Communication Engineering at <strong>IIIT-Delhi</strong> under Dr. Anuj Grover.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2021</td>
+                <td>Completed M.Tech in Electronics Circuit and System Design from <strong>Aligarh Muslim University</strong> with CPI 9.08 / 10.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2019</td>
+                <td>Qualified <strong>GATE</strong> in Electronics &amp; Communication Engineering; awarded the <strong>UGC-GATE Scholarship</strong>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- RESEARCH INTERESTS -->
+      <section id="interests">
+        <h2>Research Interests</h2>
+        <ul class="bullet-list">
+          <li><strong>SRAM-based In-Memory Computing</strong> — analog and digital architectures for DNN inference acceleration</li>
+          <li><strong>SRAM Bitcell Design</strong> — 6T and custom 10T1C cells, stability and yield characterization</li>
+          <li><strong>Sense Amplifier Design</strong> — offset characterization, differential voltage analysis, low-power optimization</li>
+          <li><strong>Memory Subsystem Modeling</strong> — behavioral and analytical noise models, Python-based simulation frameworks</li>
+          <li><strong>DNN Accelerator Architectures</strong> — workload-dependent benchmarking of CIM macros</li>
+          <li><strong>Approximate Computing</strong> — for machine learning hardware</li>
+          <li><strong>Low-Power CMOS Circuit Design</strong> — 65 nm LSTP technology, PPA trade-offs</li>
+          <li><strong>Custom Memory IP Characterization</strong> — DRC/LVS, post-layout extraction, PVT sign-off</li>
         </ul>
-      </div>
-    </div>
+      </section>
 
-    <div class="entry">
-      <div class="year">Jan 2022<br>– Present</div>
-      <div class="body">
-        <h3>PhD Researcher</h3>
-        <p class="meta">IIIT-Delhi · Advisor: Dr. Anuj Grover</p>
-        <ul>
-          <li>Architected <strong>AnalogSim</strong>, a Python-based modeling and
-              verification framework for SRAM-based memory architectures
-              (published at IEEE ISCAS 2025).</li>
-          <li>Characterized sense-amplifier offset and differential bit-line voltage
-              impact on SRAM power and delay in 65 nm LSTP.</li>
-          <li>Designed replica I/O peripheral circuits and an AOI321 standard cell
-              with full DRC/LVS, post-layout extraction, and PVT sign-off in Cadence Virtuoso.</li>
+      <!-- EDUCATION -->
+      <section id="education">
+        <h2>Education</h2>
+        <ul class="bullet-list">
+          <li>
+            <strong>Ph.D. in Electronics &amp; Communication Engineering</strong>,
+            IIIT-Delhi · VICAS Lab · Jan 2022 – Present · CPI 8.09 / 10 ·
+            Advisor: Dr. Anuj Grover
+          </li>
+          <li>
+            <strong>M.Tech in Electronics Circuit and System Design</strong>,
+            Aligarh Muslim University (AMU), Aligarh · 2019 – 2021 · CPI 9.08 / 10 ·
+            UGC-GATE Scholarship
+          </li>
+          <li>
+            <strong>B.Tech in Electronics Engineering</strong>,
+            Aligarh Muslim University (AMU), Aligarh · 2015 – 2019 · CPI 7.16 / 10
+          </li>
         </ul>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ==========================================================
-       PUBLICATIONS
-       ========================================================== -->
-  <section id="publications">
-    <h2>Publications</h2>
-
-    <div class="entry">
-      <div class="year">2025</div>
-      <div class="body">
-        <h3>AnalogSim: A Modeling Framework for SRAM-based Analog In-Memory Computing</h3>
-        <p class="authors"><span class="me">T. B. Aslam</span>, A. Grover, H. Rawat</p>
-        <span class="venue">IEEE ISCAS 2025 · London, UK</span>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="year">2025</div>
-      <div class="body">
-        <h3>MeMu-Link: A Simulink Tool for Enhanced Design Exploration of IMC Architectures</h3>
-        <p class="authors">M. Aamir, <span class="me">T. B. Aslam</span>, A. Grover</p>
-        <span class="venue">IEEE VDAT · Accepted</span>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="year">2024</div>
-      <div class="body">
-        <h3>Investigating the Impact of Differential Voltage and Sense Amplifier Offset on Power and Delay of SRAM in 65 nm LSTP Technology</h3>
-        <p class="authors"><span class="me">T. B. Aslam</span>, M. Aamir, B. Iqbal, A. Grover</p>
-        <span class="venue">IEEE TENSYMP 2024 · New Delhi</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================
-       SKILLS
-       ========================================================== -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills">
-
-      <div class="skill-cat">
-        <h4>Memory Design &amp; Modeling</h4>
-        <div class="items">
-          <span>SRAM bitcell design (6T, custom 10T1C)</span>
-          <span>Sense amplifier design &amp; offset characterization</span>
-          <span>Address decoders</span>
-          <span>Write drivers</span>
-          <span>Replica I/O circuits</span>
-          <span>Behavioral &amp; analytical modeling</span>
-          <span>Memory subsystem characterization</span>
-          <span>In-memory computing architectures</span>
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2>Research and Professional Experience</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Timeline</th>
+                <th>Organisation</th>
+                <th>Designation</th>
+                <th>Supervisor</th>
+                <th>Focus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="timeline-cell">Jan 2022 – Present</td>
+                <td>IIIT-Delhi (VICAS Lab)</td>
+                <td>PhD Researcher</td>
+                <td>Dr. Anuj Grover</td>
+                <td>SRAM memory architectures and modeling for compute-in-memory; AnalogSim framework; replica I/O peripheral circuits and AOI321 standard cell design in 65 nm LSTP.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Sep 2023 – Sep 2024</td>
+                <td>STMicroelectronics, Greater Noida</td>
+                <td>Research Intern</td>
+                <td>—</td>
+                <td>Behavioral and analytical noise modeling for SRAM memory subsystems; cross-functional collaboration with silicon and SoC design teams using Cadence and Synopsys tool flows.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2019 – 2021</td>
+                <td>Aligarh Muslim University</td>
+                <td>M.Tech Researcher</td>
+                <td>—</td>
+                <td>Electronics Circuit and System Design; UGC-GATE Scholarship recipient.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </section>
 
-      <div class="skill-cat">
-        <h4>HDL &amp; Behavioral Modeling</h4>
-        <div class="items">
-          <span>Verilog</span>
-          <span>SystemVerilog</span>
-          <span>Behavioral model development</span>
-          <span>Functional verification</span>
-          <span>HLS abstraction modeling</span>
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+        <h2>Publications</h2>
+
+        <div class="pub-item">
+          <div class="pub-title">AnalogSim: A Modeling Framework for SRAM-based Analog In-Memory Computing</div>
+          <div class="pub-authors"><span class="me">T. B. Aslam</span>, A. Grover, H. Rawat</div>
+          <div class="pub-venue">IEEE International Symposium on Circuits and Systems (ISCAS), London, UK, 2025 <span class="venue-tag">ISCAS '25</span></div>
         </div>
-      </div>
 
-      <div class="skill-cat">
-        <h4>Programming</h4>
-        <div class="items">
-          <span>Python</span>
-          <span>C / C++</span>
-          <span>MATLAB</span>
-          <span>LaTeX</span>
+        <div class="pub-item">
+          <div class="pub-title">MeMu-Link: A Simulink Tool for Enhanced Design Exploration of IMC Architectures</div>
+          <div class="pub-authors">M. Aamir, <span class="me">T. B. Aslam</span>, A. Grover</div>
+          <div class="pub-venue">IEEE International Symposium on VLSI Design and Test (VDAT), 2025 — Accepted <span class="venue-tag">VDAT '25</span></div>
         </div>
-      </div>
 
-      <div class="skill-cat">
-        <h4>EDA &amp; Simulation Tools</h4>
-        <div class="items">
-          <span>Cadence Virtuoso</span>
-          <span>Synopsys Design Compiler</span>
-          <span>ELDO (SPICE)</span>
-          <span>Xilinx Vivado HLS</span>
-          <span>MATLAB Simulink</span>
+        <div class="pub-item">
+          <div class="pub-title">Investigating the Impact of Differential Voltage and Sense Amplifier Offset on Power and Delay of SRAM in 65 nm LSTP Technology</div>
+          <div class="pub-authors"><span class="me">T. B. Aslam</span>, M. Aamir, B. Iqbal, A. Grover</div>
+          <div class="pub-venue">IEEE Region 10 Symposium (TENSYMP), New Delhi, India, 2024 <span class="venue-tag">TENSYMP '24</span></div>
         </div>
-      </div>
+      </section>
 
-      <div class="skill-cat">
-        <h4>Verification &amp; Characterization</h4>
-        <div class="items">
-          <span>Functional verification</span>
-          <span>Sign-off simulations</span>
-          <span>PVT characterization across corners</span>
-          <span>DRC / LVS</span>
-          <span>Post-layout extraction</span>
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Skills</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="timeline-cell">Memory Design &amp; Modeling</td>
+                <td>SRAM bitcell design (6T, custom 10T1C); sense amplifier design and offset characterization; address decoders; write drivers; replica I/O circuits; behavioral and analytical memory modeling; memory subsystem characterization; in-memory computing architectures</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">HDL &amp; Behavioral Modeling</td>
+                <td>Verilog; SystemVerilog; behavioral model development for memory components; functional verification; modeling at HLS abstraction</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Programming</td>
+                <td>Python; C / C++; MATLAB; LaTeX</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">EDA &amp; Simulation Tools</td>
+                <td>Cadence Virtuoso; Synopsys Design Compiler; ELDO (SPICE); Xilinx Vivado HLS; MATLAB Simulink</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Verification &amp; Characterization</td>
+                <td>Functional verification; sign-off simulations; PVT characterization across corners; DRC / LVS; post-layout extraction</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Low-Power Circuit Design</td>
+                <td>CMOS low-power techniques; sense amplifier optimization; differential voltage analysis; standard cell layout (AOI321); power / delay trade-off analysis</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">Domain Knowledge</td>
+                <td>Memory hierarchies; Static Timing Analysis (STA) fundamentals; custom memory IP characterization; accelerator architecture; 65 nm LSTP technology</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </section>
 
-      <div class="skill-cat">
-        <h4>Low-Power Circuit Design</h4>
-        <div class="items">
-          <span>CMOS low-power techniques</span>
-          <span>Sense amplifier optimization</span>
-          <span>Differential voltage analysis</span>
-          <span>Standard cell layout (AOI321)</span>
-          <span>Power / delay trade-off analysis</span>
-        </div>
-      </div>
+      <!-- HONORS & AWARDS -->
+      <section id="honors">
+        <h2>Honors and Awards</h2>
+        <ul class="bullet-list">
+          <li>
+            <strong>IEEE SSCS Student Travel Grant</strong> ($2,000), 2025 — Awarded by
+            the IEEE Solid-State Circuits Society to attend the International
+            Solid-State Circuits Conference (ISSCC), San Francisco, USA.
+          </li>
+          <li>
+            <strong>UGC-GATE Scholarship</strong>, 2019 – 2021 — Awarded by the
+            University Grants Commission of India for qualifying GATE; held throughout
+            the M.Tech program at AMU.
+          </li>
+          <li>
+            <strong>GATE Qualified</strong>, 2019 — Qualified the Graduate Aptitude Test
+            in Engineering (GATE) in Electronics &amp; Communication Engineering.
+          </li>
+        </ul>
+      </section>
 
-    </div>
-  </section>
+    </main>
+  </div>
 
-  <!-- ==========================================================
-       HONORS & AWARDS
-       ========================================================== -->
-  <section id="honors">
-    <h2>Honors &amp; Awards</h2>
-
-    <div class="entry">
-      <div class="year">2025</div>
-      <div class="body">
-        <h3>IEEE SSCS Student Travel Grant</h3>
-        <p>
-          <span class="stat">$2,000</span>
-          Awarded by the IEEE Solid-State Circuits Society to attend the
-          International Solid-State Circuits Conference (ISSCC), San Francisco, USA.
-        </p>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="year">2019 – 2021</div>
-      <div class="body">
-        <h3>UGC-GATE Scholarship</h3>
-        <p>
-          Awarded by the University Grants Commission for qualifying GATE in
-          Electronics and Communication Engineering; held during M.Tech at AMU.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================
-       CONTACT  —  ✏️ EDIT YOUR PROFILE URLS HERE
-       ========================================================== -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <dl class="contact-grid">
-      <dt>Email</dt>
-      <dd><a href="mailto:talhaa@iiitd.ac.in">talhaa@iiitd.ac.in</a></dd>
-
-      <dt>Phone</dt>
-      <dd><a href="tel:+918439466929">+91&nbsp;8439&nbsp;466&nbsp;929</a></dd>
-
-      <dt>Office</dt>
-      <dd>IIIT-Delhi, Okhla Industrial Estate, Phase III, New Delhi 110020</dd>
-
-      <!-- 🔗 Replace the # with your actual profile URLs, or delete a line you don't need -->
-      <dt>Scholar</dt>
-      <dd><a href="#" target="_blank" rel="noopener">Google Scholar profile</a></dd>
-
-      <dt>LinkedIn</dt>
-      <dd><a href="#" target="_blank" rel="noopener">linkedin.com/in/your-username</a></dd>
-
-      <dt>GitHub</dt>
-      <dd><a href="#" target="_blank" rel="noopener">github.com/your-username</a></dd>
-    </dl>
-  </section>
-
-  <!-- ========================================================== -->
   <footer>
-    <span>© <span id="year">2026</span> Talha Bin Aslam</span>
-    <span>Last updated · May 2026</span>
+    © <span id="year">2026</span> Talha Bin Aslam · IIIT-Delhi
   </footer>
 
-</div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
