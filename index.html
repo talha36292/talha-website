@@ -7,33 +7,35 @@
   <!-- ============================================================
        EDIT: PAGE TITLE (shows in browser tab and Google search)
        ============================================================ -->
-  <title>Talha — IIIT-Delhi</title>
+  <title>Talha Bin Aslam — IIIT-Delhi</title>
 
   <!-- ============================================================
        EDIT: PAGE DESCRIPTION (shows in Google search results)
        ============================================================ -->
-  <meta name="description" content="PhD candidate in Electronics and Communication Engineering at IIIT-Delhi, researching SRAM-based Analog In-Memory Computing for AI/ML acceleration." />
+  <meta name="description" content="PhD Scholar at IIIT-Delhi researching SRAM memory architectures and compute-in-memory for AI/ML acceleration." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
-       COLORS & STYLE — change these to retheme the whole site
+       COLORS & THEME — change these to retheme the whole site
        ============================================================ */
     :root {
-      --bg:        #fbfaf7;   /* page background (warm off-white) */
-      --ink:       #1c1917;   /* primary text color */
-      --muted:     #57534e;   /* secondary text */
-      --rule:      #d6d3d1;   /* hairline borders */
-      --accent:    #7c1d1d;   /* accent (deep academic red) */
-      --accent-soft: #fbeeee; /* accent background tint */
-      --max-width: 720px;
+      --bg:          #fbfaf7;
+      --bg-elev:     #ffffff;
+      --ink:         #1c1917;
+      --muted:       #57534e;
+      --faint:       #a8a29e;
+      --rule:        #e7e5e4;
+      --rule-strong: #d6d3d1;
+      --accent:      #7c1d1d;
+      --accent-soft: #fbeeee;
+      --max-width:   860px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -45,398 +47,534 @@
       color: var(--ink);
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
-      padding: 4rem 1.5rem 6rem;
+      background-image:
+        radial-gradient(at 12% 8%, rgba(124, 29, 29, 0.04) 0px, transparent 50%),
+        radial-gradient(at 88% 92%, rgba(124, 29, 29, 0.03) 0px, transparent 50%);
+      background-attachment: fixed;
     }
 
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
+    .wrap { max-width: var(--max-width); margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
 
-    /* HEADER ----------------------------------------------------- */
-    .masthead {
+    /* HEADER ---------------------------------------------------- */
+    header.hero {
       display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 1.75rem;
+      grid-template-columns: 160px 1fr;
+      gap: 2.25rem;
       align-items: center;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--ink);
       margin-bottom: 2.5rem;
+      position: relative;
+    }
+    header.hero::after {
+      content: ""; position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      height: 1px; background: var(--ink);
     }
 
-    .avatar {
-      width: 96px;
-      height: 96px;
+    .photo {
+      width: 160px; height: 160px;
       border-radius: 50%;
       background: var(--accent-soft);
       color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      font-weight: 500;
-      font-style: italic;
-      border: 1px solid var(--rule);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; font-weight: 500; font-style: italic;
+      border: 1px solid var(--rule-strong);
       overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 24px rgba(0,0,0,0.04);
     }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    h1 {
-      font-weight: 500;
-      font-size: 2.4rem;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
+    .id h1 {
+      font-weight: 500; font-size: 2.75rem; line-height: 1.05;
+      letter-spacing: -0.015em; margin-bottom: 0.5rem;
     }
+    .id .role { color: var(--muted); font-size: 1.1rem; font-style: italic; margin-bottom: 1rem; }
+    .id .role a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+    .id .role a:hover { color: var(--accent); border-color: var(--accent); }
 
-    .tagline {
-      color: var(--muted);
-      font-size: 1.05rem;
-      font-style: italic;
+    .quick-contact {
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--muted);
     }
+    .quick-contact a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--rule-strong); padding-bottom: 1px; }
+    .quick-contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-    .tagline a {
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-    }
-    .tagline a:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* NAV -------------------------------------------------------- */
+    /* NAV ------------------------------------------------------- */
     nav.toc {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem 1.5rem;
-      margin-bottom: 3rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.75rem;
+      margin-bottom: 3.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase;
     }
-    nav.toc a {
-      color: var(--muted);
-      text-decoration: none;
-      padding: 0.25rem 0;
-      border-bottom: 1px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
-    }
+    nav.toc a { color: var(--muted); text-decoration: none; padding: 0.2rem 0; border-bottom: 1px solid transparent; transition: 0.15s; }
     nav.toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    nav.toc a::before { content: "§ "; color: var(--faint); }
 
-    /* SECTIONS --------------------------------------------------- */
-    section { margin-bottom: 3.25rem; }
-
+    /* SECTIONS -------------------------------------------------- */
+    section { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
     h2 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.5rem; padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule-strong);
+      display: flex; align-items: baseline; gap: 0.75rem;
     }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
-    h3 {
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 0.15rem;
-      line-height: 1.35;
-    }
+    h3 { font-size: 1.15rem; font-weight: 500; margin-bottom: 0.15rem; line-height: 1.35; color: var(--ink); }
+    p { margin-bottom: 1rem; } p:last-child { margin-bottom: 0; }
 
-    p { margin-bottom: 1rem; }
-    p:last-child { margin-bottom: 0; }
-
-    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: border-color 0.15s; }
     a:hover { border-bottom-color: var(--accent); }
-
     em { font-style: italic; color: var(--muted); }
+    strong { font-weight: 600; }
 
-    /* ENTRY (used for education, publications, awards, etc.) ----- */
+    /* ENTRY ----------------------------------------------------- */
     .entry {
-      display: grid;
-      grid-template-columns: 5.5rem 1fr;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px dotted var(--rule);
+      display: grid; grid-template-columns: 7rem 1fr; gap: 1.5rem;
+      margin-bottom: 1.75rem; padding-bottom: 1.75rem;
+      border-bottom: 1px dotted var(--rule-strong);
     }
     .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .entry .year { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); padding-top: 0.45rem; line-height: 1.4; }
+    .entry .body .meta { color: var(--muted); font-size: 0.95rem; font-style: italic; margin-bottom: 0.5rem; }
+    .entry .body ul { margin-top: 0.6rem; margin-left: 1.1rem; }
+    .entry .body li { margin-bottom: 0.4rem; font-size: 0.96rem; line-height: 1.55; }
 
-    .entry .year {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--muted);
-      padding-top: 0.4rem;
-      letter-spacing: 0.02em;
-    }
-
-    .entry .meta {
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-style: italic;
-    }
-
-    .entry .venue {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-style: normal;
+    .stat {
       display: inline-block;
-      margin-top: 0.25rem;
-      padding: 0.1rem 0.45rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--accent);
       background: var(--accent-soft);
-      border-radius: 2px;
+      padding: 0.15rem 0.5rem; border-radius: 2px;
+      margin-right: 0.4rem; letter-spacing: 0.04em; vertical-align: 2px;
     }
+    .venue {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      display: inline-block; margin-top: 0.5rem;
+      padding: 0.15rem 0.55rem; background: var(--accent-soft);
+      border: 1px solid rgba(124, 29, 29, 0.12); border-radius: 2px;
+    }
+    .authors { font-size: 0.95rem; color: var(--muted); font-style: italic; margin-top: 0.25rem; }
+    .authors .me { color: var(--ink); font-style: normal; font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 
-    /* CONTACT GRID ----------------------------------------------- */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 5.5rem 1fr;
-      gap: 0.5rem 1.25rem;
-      font-size: 0.95rem;
+    /* SKILLS ---------------------------------------------------- */
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .skill-cat {
+      background: var(--bg-elev);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.1rem; border-radius: 2px;
     }
+    .skill-cat h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .skill-cat .items { font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
+    .skill-cat .items span:not(:last-child)::after { content: " · "; color: var(--faint); font-weight: bold; }
+
+    /* INTERESTS ------------------------------------------------- */
+    .interests { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .interests span {
+      font-size: 0.92rem; padding: 0.35rem 0.75rem;
+      background: var(--bg-elev); border: 1px solid var(--rule-strong);
+      border-radius: 999px; color: var(--ink);
+    }
+    .interests span::before { content: "▸ "; color: var(--accent); font-size: 0.85em; }
+
+    /* CONTACT --------------------------------------------------- */
+    .contact-grid { display: grid; grid-template-columns: 7rem 1fr; gap: 0.85rem 1.5rem; font-size: 1rem; }
     .contact-grid dt {
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding-top: 0.35rem;
+      color: var(--muted); font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.1em; padding-top: 0.4rem;
     }
 
-    /* FOOTER ----------------------------------------------------- */
+    /* FOOTER ---------------------------------------------------- */
     footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.82rem;
-      color: var(--muted);
-      font-style: italic;
-      text-align: center;
+      margin-top: 5rem; padding-top: 2rem;
+      border-top: 1px solid var(--rule-strong);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--faint);
+      letter-spacing: 0.05em; text-transform: uppercase;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
 
-    /* MOBILE ----------------------------------------------------- */
-    @media (max-width: 600px) {
-      body { padding: 2rem 1.25rem 4rem; font-size: 17px; }
-      .masthead { grid-template-columns: 1fr; text-align: left; gap: 1.25rem; }
-      h1 { font-size: 2rem; }
-      .entry { grid-template-columns: 1fr; gap: 0.3rem; }
-      .entry .year { padding-top: 0; font-size: 0.75rem; }
-      .contact-grid { grid-template-columns: 1fr; gap: 0.1rem; }
-      .contact-grid dt { padding-top: 0.75rem; }
+    /* MOBILE ---------------------------------------------------- */
+    @media (max-width: 700px) {
+      .wrap { padding: 2rem 1.25rem 4rem; }
+      header.hero { grid-template-columns: 1fr; text-align: left; gap: 1.5rem; }
+      .photo { width: 120px; height: 120px; font-size: 3rem; }
+      .id h1 { font-size: 2rem; }
+      .entry { grid-template-columns: 1fr; gap: 0.5rem; }
+      .entry .year { padding-top: 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 0.2rem; }
+      .contact-grid dt { padding-top: 0.85rem; }
+      .skills { grid-template-columns: 1fr; }
     }
 
-    /* Subtle page-load animation */
-    main > * { animation: fadeUp 0.6s ease-out both; }
-    main > *:nth-child(1) { animation-delay: 0.0s; }
-    main > *:nth-child(2) { animation-delay: 0.08s; }
-    main > *:nth-child(3) { animation-delay: 0.16s; }
-    main > *:nth-child(4) { animation-delay: 0.24s; }
-    main > *:nth-child(5) { animation-delay: 0.32s; }
-    main > *:nth-child(6) { animation-delay: 0.40s; }
-    main > *:nth-child(7) { animation-delay: 0.48s; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    /* PAGE LOAD ------------------------------------------------- */
+    .wrap > * { animation: fadeUp 0.55s ease-out both; }
+    .wrap > *:nth-child(1) { animation-delay: 0s; }
+    .wrap > *:nth-child(2) { animation-delay: 0.06s; }
+    .wrap > *:nth-child(3) { animation-delay: 0.12s; }
+    .wrap > *:nth-child(4) { animation-delay: 0.18s; }
+    .wrap > *:nth-child(5) { animation-delay: 0.24s; }
+    .wrap > *:nth-child(6) { animation-delay: 0.30s; }
+    .wrap > *:nth-child(7) { animation-delay: 0.36s; }
+    .wrap > *:nth-child(8) { animation-delay: 0.42s; }
+    .wrap > *:nth-child(9) { animation-delay: 0.48s; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 
 <body>
-  <main>
+<div class="wrap">
 
-    <!-- ============================================================
-         HEADER — name, affiliation, photo
-         ============================================================ -->
-    <header class="masthead">
-      <!-- To use a real photo: replace the letter below with:
-           <img src="photo.jpg" alt="Your name">
-           and put photo.jpg in the same folder as this file. -->
-      <div class="avatar">T</div>
+  <!-- ==========================================================
+       HEADER  —  ✏️ EDIT NAME, ROLE, AND PHOTO HERE
+       ========================================================== -->
+  <header class="hero">
+    <!--  📷  TO ADD YOUR PHOTO:
+          1. Put a square photo named  photo.jpg  in the SAME folder as this file.
+          2. Replace the next line with:
+             <div class="photo"><img src="photo.jpg" alt="Talha Bin Aslam"></div>
+    -->
+    <div class="photo">T</div>
 
-      <div>
-        <!-- EDIT: YOUR NAME -->
-        <h1>Talha</h1>
-        <!-- EDIT: ROLE + AFFILIATION -->
-        <p class="tagline">
-          PhD Candidate, Electronics &amp; Communication Engineering<br>
-          <a href="https://iiitd.ac.in" target="_blank" rel="noopener">IIIT-Delhi</a>
+    <div class="id">
+      <h1>Talha Bin Aslam</h1>
+      <p class="role">
+        PhD Scholar, Electronics &amp; Communication Engineering<br>
+        <a href="https://iiitd.ac.in" target="_blank" rel="noopener">Indraprastha Institute of Information Technology, Delhi</a>
+      </p>
+
+      <div class="quick-contact">
+        <a href="mailto:talhaa@iiitd.ac.in">✉ talhaa@iiitd.ac.in</a>
+        <a href="tel:+918439466929">☎ +91 8439 466 929</a>
+        <span>⌖ Delhi, India</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================
+       NAV
+       ========================================================== -->
+  <nav class="toc">
+    <a href="#about">About</a>
+    <a href="#interests">Interests</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#publications">Publications</a>
+    <a href="#skills">Skills</a>
+    <a href="#honors">Honors</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ==========================================================
+       ABOUT
+       ========================================================== -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a PhD Scholar at <strong>IIIT-Delhi</strong>, working with
+      <strong>Dr.&nbsp;Anuj Grover</strong> on SRAM memory architectures and modeling for
+      compute-in-memory (CIM). My research spans bitcell-level circuit design,
+      sense-amplifier characterization, peripheral I/O, and a Python-based modeling
+      framework (<em>AnalogSim</em>) for benchmarking analog in-memory computing
+      architectures targeting AI/ML acceleration.
+    </p>
+    <p>
+      Previously, I was a Research Intern at <strong>STMicroelectronics</strong>
+      (Greater Noida), where I developed behavioral and analytical noise models for
+      SRAM memory subsystems and worked alongside silicon and SoC design teams on
+      memory subsystem characterization. I hold an M.Tech in Electronics Circuit &amp;
+      System Design from Aligarh Muslim University, where I was a UGC-GATE
+      Scholarship recipient.
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       RESEARCH INTERESTS
+       ========================================================== -->
+  <section id="interests">
+    <h2>Research Interests</h2>
+    <div class="interests">
+      <span>SRAM-based In-Memory Computing</span>
+      <span>Custom bitcell design (6T, 10T1C)</span>
+      <span>Sense amplifier offset characterization</span>
+      <span>Analog &amp; Digital CIM architectures</span>
+      <span>Memory subsystem modeling</span>
+      <span>DNN inference accelerators</span>
+      <span>Low-power CMOS circuit design</span>
+      <span>65 nm LSTP technology</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       EDUCATION
+       ========================================================== -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="entry">
+      <div class="year">Jan 2022<br>– Present</div>
+      <div class="body">
+        <h3>Ph.D., Electronics &amp; Communication Engineering</h3>
+        <p class="meta">Indraprastha Institute of Information Technology, Delhi (IIIT-Delhi)</p>
+        <p>
+          <span class="stat">CPI 8.09 / 10</span>
+          Advisor: Dr.&nbsp;Anuj Grover. Research focus: SRAM memory architectures
+          and modeling for compute-in-memory.
         </p>
       </div>
-    </header>
+    </div>
 
-    <!-- ============================================================
-         NAV — links to sections below. Add/remove as needed.
-         ============================================================ -->
-    <nav class="toc">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#education">Education</a>
-      <a href="#publications">Publications</a>
-      <a href="#achievements">Honors</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="entry">
+      <div class="year">2019 – 2021</div>
+      <div class="body">
+        <h3>M.Tech, Electronics Circuit &amp; System Design</h3>
+        <p class="meta">Aligarh Muslim University (AMU), Aligarh</p>
+        <p>
+          <span class="stat">CPI 9.08 / 10</span>
+          UGC-GATE Scholarship recipient.
+        </p>
+      </div>
+    </div>
 
-    <!-- ============================================================
-         ABOUT — short bio paragraph
-         ============================================================ -->
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I am a PhD candidate at the Indraprastha Institute of Information Technology Delhi,
-        working with <a href="#">Prof.&nbsp;Anuj Grover</a> on SRAM-based Analog In-Memory
-        Computing (CIM) for accelerating AI and machine-learning workloads. My research
-        spans circuit design, architectural simulation, and system-level benchmarking,
-        with a focus on deep neural network inference.
-      </p>
-      <p>
-        Before my PhD, I &lt;EDIT: one sentence about your background — undergrad, masters,
-        prior work, etc.&gt;.
-      </p>
-    </section>
+    <div class="entry">
+      <div class="year">2015 – 2019</div>
+      <div class="body">
+        <h3>B.Tech, Electronics Engineering</h3>
+        <p class="meta">Aligarh Muslim University (AMU), Aligarh</p>
+        <p><span class="stat">CPI 7.16 / 10</span></p>
+      </div>
+    </div>
+  </section>
 
-    <!-- ============================================================
-         RESEARCH INTERESTS
-         ============================================================ -->
-    <section id="research">
-      <h2>Research Interests</h2>
-      <p>
-        In-Memory Computing (Analog &amp; Digital) &middot;
-        SRAM bitcell design &middot;
-        Flash ADC architectures &middot;
-        DNN accelerator design &middot;
-        PPA benchmarking of CIM macros &middot;
-        65&nbsp;nm LSTP circuit design
-      </p>
-    </section>
+  <!-- ==========================================================
+       EXPERIENCE
+       ========================================================== -->
+  <section id="experience">
+    <h2>Research &amp; Professional Experience</h2>
 
-    <!-- ============================================================
-         EDUCATION — copy the .entry block to add more
-         ============================================================ -->
-    <section id="education">
-      <h2>Education</h2>
+    <div class="entry">
+      <div class="year">Sep 2023<br>– Sep 2024</div>
+      <div class="body">
+        <h3>Research Intern</h3>
+        <p class="meta">STMicroelectronics, Greater Noida</p>
+        <ul>
+          <li>Developed behavioral and analytical noise models for SRAM memory subsystems.</li>
+          <li>Collaborated with cross-functional silicon and SoC design teams on memory
+              subsystem characterization using Cadence and Synopsys tool flows.</li>
+        </ul>
+      </div>
+    </div>
 
-      <div class="entry">
-        <div class="year">2021&nbsp;–&nbsp;Present</div>
-        <div>
-          <h3>Ph.D., Electronics &amp; Communication Engineering</h3>
-          <p class="meta">IIIT-Delhi &middot; Advisor: Prof. Anuj Grover</p>
-          <p class="meta">Thesis: SRAM-based Analog In-Memory Computing for AI/ML Acceleration</p>
+    <div class="entry">
+      <div class="year">Jan 2022<br>– Present</div>
+      <div class="body">
+        <h3>PhD Researcher</h3>
+        <p class="meta">IIIT-Delhi · Advisor: Dr. Anuj Grover</p>
+        <ul>
+          <li>Architected <strong>AnalogSim</strong>, a Python-based modeling and
+              verification framework for SRAM-based memory architectures
+              (published at IEEE ISCAS 2025).</li>
+          <li>Characterized sense-amplifier offset and differential bit-line voltage
+              impact on SRAM power and delay in 65 nm LSTP.</li>
+          <li>Designed replica I/O peripheral circuits and an AOI321 standard cell
+              with full DRC/LVS, post-layout extraction, and PVT sign-off in Cadence Virtuoso.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       PUBLICATIONS
+       ========================================================== -->
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <div class="entry">
+      <div class="year">2025</div>
+      <div class="body">
+        <h3>AnalogSim: A Modeling Framework for SRAM-based Analog In-Memory Computing</h3>
+        <p class="authors"><span class="me">T. B. Aslam</span>, A. Grover, H. Rawat</p>
+        <span class="venue">IEEE ISCAS 2025 · London, UK</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="year">2025</div>
+      <div class="body">
+        <h3>MeMu-Link: A Simulink Tool for Enhanced Design Exploration of IMC Architectures</h3>
+        <p class="authors">M. Aamir, <span class="me">T. B. Aslam</span>, A. Grover</p>
+        <span class="venue">IEEE VDAT · Accepted</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="year">2024</div>
+      <div class="body">
+        <h3>Investigating the Impact of Differential Voltage and Sense Amplifier Offset on Power and Delay of SRAM in 65 nm LSTP Technology</h3>
+        <p class="authors"><span class="me">T. B. Aslam</span>, M. Aamir, B. Iqbal, A. Grover</p>
+        <span class="venue">IEEE TENSYMP 2024 · New Delhi</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SKILLS
+       ========================================================== -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+
+      <div class="skill-cat">
+        <h4>Memory Design &amp; Modeling</h4>
+        <div class="items">
+          <span>SRAM bitcell design (6T, custom 10T1C)</span>
+          <span>Sense amplifier design &amp; offset characterization</span>
+          <span>Address decoders</span>
+          <span>Write drivers</span>
+          <span>Replica I/O circuits</span>
+          <span>Behavioral &amp; analytical modeling</span>
+          <span>Memory subsystem characterization</span>
+          <span>In-memory computing architectures</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="year">YYYY&nbsp;–&nbsp;YYYY</div>
-        <div>
-          <h3>M.Tech / M.S. — &lt;EDIT: program&gt;</h3>
-          <p class="meta">&lt;EDIT: institution&gt;</p>
+      <div class="skill-cat">
+        <h4>HDL &amp; Behavioral Modeling</h4>
+        <div class="items">
+          <span>Verilog</span>
+          <span>SystemVerilog</span>
+          <span>Behavioral model development</span>
+          <span>Functional verification</span>
+          <span>HLS abstraction modeling</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="year">YYYY&nbsp;–&nbsp;YYYY</div>
-        <div>
-          <h3>B.Tech / B.E. — &lt;EDIT: program&gt;</h3>
-          <p class="meta">&lt;EDIT: institution&gt;</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         PUBLICATIONS — copy the .entry block to add more
-         ============================================================ -->
-    <section id="publications">
-      <h2>Selected Publications</h2>
-
-      <div class="entry">
-        <div class="year">2024</div>
-        <div>
-          <h3>AnalogSim: &lt;EDIT: full paper title&gt;</h3>
-          <p class="meta">Talha, &lt;co-authors&gt;, Anuj Grover</p>
-          <span class="venue">ISCAS 2024</span>
+      <div class="skill-cat">
+        <h4>Programming</h4>
+        <div class="items">
+          <span>Python</span>
+          <span>C / C++</span>
+          <span>MATLAB</span>
+          <span>LaTeX</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="year">2023</div>
-        <div>
-          <h3>&lt;EDIT: journal extension title — 10T1C SRAM bitcell for IMC&gt;</h3>
-          <p class="meta">Talha, Belal Iqbal, Anuj Grover</p>
-          <span class="venue">Springer CSSP (under review)</span>
+      <div class="skill-cat">
+        <h4>EDA &amp; Simulation Tools</h4>
+        <div class="items">
+          <span>Cadence Virtuoso</span>
+          <span>Synopsys Design Compiler</span>
+          <span>ELDO (SPICE)</span>
+          <span>Xilinx Vivado HLS</span>
+          <span>MATLAB Simulink</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="year">2022</div>
-        <div>
-          <h3>A 10T1C SRAM Bitcell for In-Memory Computing</h3>
-          <p class="meta">Talha, &lt;co-authors&gt;, Anuj Grover</p>
-          <span class="venue">IEEE AICAS 2022</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         HONORS / ACHIEVEMENTS
-         ============================================================ -->
-    <section id="achievements">
-      <h2>Honors &amp; Achievements</h2>
-
-      <div class="entry">
-        <div class="year">YYYY</div>
-        <div>
-          <h3>&lt;EDIT: award or recognition&gt;</h3>
-          <p class="meta">&lt;EDIT: awarding body / short description&gt;</p>
+      <div class="skill-cat">
+        <h4>Verification &amp; Characterization</h4>
+        <div class="items">
+          <span>Functional verification</span>
+          <span>Sign-off simulations</span>
+          <span>PVT characterization across corners</span>
+          <span>DRC / LVS</span>
+          <span>Post-layout extraction</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="year">YYYY</div>
-        <div>
-          <h3>&lt;EDIT: scholarship / fellowship&gt;</h3>
-          <p class="meta">&lt;EDIT: details&gt;</p>
+      <div class="skill-cat">
+        <h4>Low-Power Circuit Design</h4>
+        <div class="items">
+          <span>CMOS low-power techniques</span>
+          <span>Sense amplifier optimization</span>
+          <span>Differential voltage analysis</span>
+          <span>Standard cell layout (AOI321)</span>
+          <span>Power / delay trade-off analysis</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="year">YYYY</div>
-        <div>
-          <h3>&lt;EDIT: conference travel grant, best paper, etc.&gt;</h3>
-          <p class="meta">&lt;EDIT: details&gt;</p>
-        </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       HONORS & AWARDS
+       ========================================================== -->
+  <section id="honors">
+    <h2>Honors &amp; Awards</h2>
+
+    <div class="entry">
+      <div class="year">2025</div>
+      <div class="body">
+        <h3>IEEE SSCS Student Travel Grant</h3>
+        <p>
+          <span class="stat">$2,000</span>
+          Awarded by the IEEE Solid-State Circuits Society to attend the
+          International Solid-State Circuits Conference (ISSCC), San Francisco, USA.
+        </p>
       </div>
-    </section>
+    </div>
 
-    <!-- ============================================================
-         CONTACT
-         ============================================================ -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <dl class="contact-grid">
-        <dt>Email</dt>
-        <dd><a href="mailto:[email protected]">[email protected]</a></dd>
+    <div class="entry">
+      <div class="year">2019 – 2021</div>
+      <div class="body">
+        <h3>UGC-GATE Scholarship</h3>
+        <p>
+          Awarded by the University Grants Commission for qualifying GATE in
+          Electronics and Communication Engineering; held during M.Tech at AMU.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <dt>Office</dt>
-        <dd>&lt;EDIT: building, room number&gt;, IIIT-Delhi, New Delhi&nbsp;110020</dd>
+  <!-- ==========================================================
+       CONTACT  —  ✏️ EDIT YOUR PROFILE URLS HERE
+       ========================================================== -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <dl class="contact-grid">
+      <dt>Email</dt>
+      <dd><a href="mailto:talhaa@iiitd.ac.in">talhaa@iiitd.ac.in</a></dd>
 
-        <dt>Scholar</dt>
-        <dd><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></dd>
+      <dt>Phone</dt>
+      <dd><a href="tel:+918439466929">+91&nbsp;8439&nbsp;466&nbsp;929</a></dd>
 
-        <dt>GitHub</dt>
-        <dd><a href="https://github.com" target="_blank" rel="noopener">github.com/your-username</a></dd>
+      <dt>Office</dt>
+      <dd>IIIT-Delhi, Okhla Industrial Estate, Phase III, New Delhi 110020</dd>
 
-        <dt>LinkedIn</dt>
-        <dd><a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/your-username</a></dd>
-      </dl>
-    </section>
+      <!-- 🔗 Replace the # with your actual profile URLs, or delete a line you don't need -->
+      <dt>Scholar</dt>
+      <dd><a href="#" target="_blank" rel="noopener">Google Scholar profile</a></dd>
 
-    <footer>
-      <!-- EDIT: footer line (or delete entirely) -->
-      Last updated <span id="last-updated">May&nbsp;2026</span> &middot;
-      Built with HTML &amp; care.
-    </footer>
+      <dt>LinkedIn</dt>
+      <dd><a href="#" target="_blank" rel="noopener">linkedin.com/in/your-username</a></dd>
 
-  </main>
+      <dt>GitHub</dt>
+      <dd><a href="#" target="_blank" rel="noopener">github.com/your-username</a></dd>
+    </dl>
+  </section>
+
+  <!-- ========================================================== -->
+  <footer>
+    <span>© <span id="year">2026</span> Talha Bin Aslam</span>
+    <span>Last updated · May 2026</span>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
