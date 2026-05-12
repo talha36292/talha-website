@@ -24,7 +24,7 @@
       --link:        #2563eb;
       --link-hover:  #1d4ed8;
       --accent:      #0f766e;
-      --max-content: 1180px;
+      --max-content: 1040px;
 
       --serif: 'Lora', Georgia, serif;
       --sans:  'Source Sans 3', system-ui, -apple-system, sans-serif;
@@ -67,29 +67,24 @@
     .topbar-inner {
       max-width: var(--max-content);
       margin: 0 auto;
-      padding: 0.85rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-    }
-    .topbar .brand {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--ink);
     }
     .topbar nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.25rem 1.25rem;
+      justify-content: center;
+      gap: 0.4rem 2rem;
     }
     .topbar nav a {
       color: var(--ink-soft);
-      font-size: 0.93rem;
-      font-weight: 400;
-      padding: 0.25rem 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      padding: 0.3rem 0;
       border-bottom: 2px solid transparent;
       transition: border-color 0.15s, color 0.15s;
     }
@@ -430,8 +425,8 @@
       }
       .side-affil { grid-column: 2; }
       .topbar-inner { padding: 0.65rem 1rem; }
-      .topbar nav { gap: 0 0.85rem; font-size: 0.85rem; }
-      .topbar nav a { font-size: 0.85rem; }
+      .topbar nav { gap: 0.3rem 1.1rem; }
+      .topbar nav a { font-size: 0.92rem; font-weight: 500; }
       h2 { font-size: 1.3rem; }
       table { font-size: 0.85rem; }
       table th, table td { padding: 0.5rem 0.6rem; }
@@ -446,7 +441,6 @@
        ========================================================== -->
   <div class="topbar">
     <div class="topbar-inner">
-      <span class="brand">Talha Bin Aslam</span>
       <nav>
         <a href="#about">About</a>
         <a href="#news">News</a>
@@ -472,8 +466,7 @@
            2. Replace this entire <div class="side-photo">…</div> block with:
               <div class="side-photo"><img src="photo.jpg" alt="Talha Bin Aslam"></div>
       -->
-      <div class="side-photo"><img src="talha_binaslam.png" alt="Talha Bin Aslam"></div>
-      
+      <div class="side-photo">T</div>
 
       <div class="side-name">Talha Bin Aslam</div>
       <div class="side-title">
@@ -559,6 +552,10 @@
             </thead>
             <tbody>
               <tr>
+                <td class="timeline-cell">2026</td>
+                <td>Journal paper "<strong>An HLS-based Framework for Non-Ideality Aware Modeling of SRAM-based Analog In-Memory Computing Accelerators</strong>" accepted at <strong>IEEE JETCAS</strong> (Journal on Emerging and Selected Topics in Circuits and Systems).</td>
+              </tr>
+              <tr>
                 <td class="timeline-cell">2025</td>
                 <td>Awarded the <strong>IEEE SSCS Student Travel Grant ($2,000)</strong> to attend ISSCC, San Francisco, USA.</td>
               </tr>
@@ -588,7 +585,15 @@
               </tr>
               <tr>
                 <td class="timeline-cell">2021</td>
+                <td>Published "<strong>FPGA Implementation of an Approximate Booth-Wallace Tree Multiplier</strong>" at the International Conference on Innovative Computing.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2021</td>
                 <td>Completed M.Tech in Electronics Circuit and System Design from <strong>Aligarh Muslim University</strong> with CPI 9.08 / 10.</td>
+              </tr>
+              <tr>
+                <td class="timeline-cell">2019</td>
+                <td>Published first paper "<strong>Design and Implementation of Low Cost Digital Timetable for Prayers</strong>" at the International Conference on Electrical, Electronics and Computer Engineering.</td>
               </tr>
               <tr>
                 <td class="timeline-cell">2019</td>
@@ -681,6 +686,12 @@
         <h2>Publications</h2>
 
         <div class="pub-item">
+          <div class="pub-title">An HLS-based Framework for Non-Ideality Aware Modeling of SRAM-based Analog In-Memory Computing Accelerators</div>
+          <div class="pub-authors"><span class="me">T. B. Aslam</span>, S. Shukla, U. Choudhary, B. Iqbal, A. Grover</div>
+          <div class="pub-venue">IEEE Journal on Emerging and Selected Topics in Circuits and Systems (JETCAS), 2026 <span class="venue-tag">JETCAS '26</span></div>
+        </div>
+
+        <div class="pub-item">
           <div class="pub-title">AnalogSim: A Modeling Framework for SRAM-based Analog In-Memory Computing</div>
           <div class="pub-authors"><span class="me">T. B. Aslam</span>, A. Grover, H. Rawat</div>
           <div class="pub-venue">IEEE International Symposium on Circuits and Systems (ISCAS), London, UK, 2025 <span class="venue-tag">ISCAS '25</span></div>
@@ -696,6 +707,18 @@
           <div class="pub-title">Investigating the Impact of Differential Voltage and Sense Amplifier Offset on Power and Delay of SRAM in 65 nm LSTP Technology</div>
           <div class="pub-authors"><span class="me">T. B. Aslam</span>, M. Aamir, B. Iqbal, A. Grover</div>
           <div class="pub-venue">IEEE Region 10 Symposium (TENSYMP), New Delhi, India, 2024 <span class="venue-tag">TENSYMP '24</span></div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-title">FPGA Implementation of an Approximate Booth-Wallace Tree Multiplier</div>
+          <div class="pub-authors"><span class="me">T. B. Aslam</span>, F. Ahmed</div>
+          <div class="pub-venue">Proceedings of the International Conference on Innovative Computing, 2021 <span class="venue-tag">IC 2021</span></div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-title">Design and Implementation of Low Cost Digital Timetable for Prayers</div>
+          <div class="pub-authors"><span class="me">T. B. Aslam</span>, A. Azeem, S. J. Arif</div>
+          <div class="pub-venue">International Conference on Electrical, Electronics and Computer Engineering, 2019 <span class="venue-tag">UPCON '19</span></div>
         </div>
       </section>
 
