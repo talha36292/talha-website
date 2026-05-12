@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       EDIT: PAGE TITLE (shows in browser tab and Google search)
+       ============================================================ -->
+  <title>Talha — IIIT-Delhi</title>
+
+  <!-- ============================================================
+       EDIT: PAGE DESCRIPTION (shows in Google search results)
+       ============================================================ -->
+  <meta name="description" content="PhD candidate in Electronics and Communication Engineering at IIIT-Delhi, researching SRAM-based Analog In-Memory Computing for AI/ML acceleration." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       COLORS & STYLE — change these to retheme the whole site
+       ============================================================ */
+    :root {
+      --bg:        #fbfaf7;   /* page background (warm off-white) */
+      --ink:       #1c1917;   /* primary text color */
+      --muted:     #57534e;   /* secondary text */
+      --rule:      #d6d3d1;   /* hairline borders */
+      --accent:    #7c1d1d;   /* accent (deep academic red) */
+      --accent-soft: #fbeeee; /* accent background tint */
+      --max-width: 720px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+      font-optical-sizing: auto;
+      font-weight: 380;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* HEADER ----------------------------------------------------- */
+    .masthead {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 1.75rem;
+      align-items: center;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 500;
+      font-style: italic;
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    h1 {
+      font-weight: 500;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.35rem;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+
+    .tagline a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .tagline a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* NAV -------------------------------------------------------- */
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      margin-bottom: 3rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    nav.toc a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    nav.toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* SECTIONS --------------------------------------------------- */
+    section { margin-bottom: 3.25rem; }
+
+    h2 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+      line-height: 1.35;
+    }
+
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+    a:hover { border-bottom-color: var(--accent); }
+
+    em { font-style: italic; color: var(--muted); }
+
+    /* ENTRY (used for education, publications, awards, etc.) ----- */
+    .entry {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .entry .year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-top: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .entry .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-style: italic;
+    }
+
+    .entry .venue {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-style: normal;
+      display: inline-block;
+      margin-top: 0.25rem;
+      padding: 0.1rem 0.45rem;
+      background: var(--accent-soft);
+      border-radius: 2px;
+    }
+
+    /* CONTACT GRID ----------------------------------------------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.95rem;
+    }
+    .contact-grid dt {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-top: 0.35rem;
+    }
+
+    /* FOOTER ----------------------------------------------------- */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* MOBILE ----------------------------------------------------- */
+    @media (max-width: 600px) {
+      body { padding: 2rem 1.25rem 4rem; font-size: 17px; }
+      .masthead { grid-template-columns: 1fr; text-align: left; gap: 1.25rem; }
+      h1 { font-size: 2rem; }
+      .entry { grid-template-columns: 1fr; gap: 0.3rem; }
+      .entry .year { padding-top: 0; font-size: 0.75rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 0.1rem; }
+      .contact-grid dt { padding-top: 0.75rem; }
+    }
+
+    /* Subtle page-load animation */
+    main > * { animation: fadeUp 0.6s ease-out both; }
+    main > *:nth-child(1) { animation-delay: 0.0s; }
+    main > *:nth-child(2) { animation-delay: 0.08s; }
+    main > *:nth-child(3) { animation-delay: 0.16s; }
+    main > *:nth-child(4) { animation-delay: 0.24s; }
+    main > *:nth-child(5) { animation-delay: 0.32s; }
+    main > *:nth-child(6) { animation-delay: 0.40s; }
+    main > *:nth-child(7) { animation-delay: 0.48s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <!-- ============================================================
+         HEADER — name, affiliation, photo
+         ============================================================ -->
+    <header class="masthead">
+      <!-- To use a real photo: replace the letter below with:
+           <img src="photo.jpg" alt="Your name">
+           and put photo.jpg in the same folder as this file. -->
+      <div class="avatar">T</div>
+
+      <div>
+        <!-- EDIT: YOUR NAME -->
+        <h1>Talha</h1>
+        <!-- EDIT: ROLE + AFFILIATION -->
+        <p class="tagline">
+          PhD Candidate, Electronics &amp; Communication Engineering<br>
+          <a href="https://iiitd.ac.in" target="_blank" rel="noopener">IIIT-Delhi</a>
+        </p>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         NAV — links to sections below. Add/remove as needed.
+         ============================================================ -->
+    <nav class="toc">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#achievements">Honors</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- ============================================================
+         ABOUT — short bio paragraph
+         ============================================================ -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a PhD candidate at the Indraprastha Institute of Information Technology Delhi,
+        working with <a href="#">Prof.&nbsp;Anuj Grover</a> on SRAM-based Analog In-Memory
+        Computing (CIM) for accelerating AI and machine-learning workloads. My research
+        spans circuit design, architectural simulation, and system-level benchmarking,
+        with a focus on deep neural network inference.
+      </p>
+      <p>
+        Before my PhD, I &lt;EDIT: one sentence about your background — undergrad, masters,
+        prior work, etc.&gt;.
+      </p>
+    </section>
+
+    <!-- ============================================================
+         RESEARCH INTERESTS
+         ============================================================ -->
+    <section id="research">
+      <h2>Research Interests</h2>
+      <p>
+        In-Memory Computing (Analog &amp; Digital) &middot;
+        SRAM bitcell design &middot;
+        Flash ADC architectures &middot;
+        DNN accelerator design &middot;
+        PPA benchmarking of CIM macros &middot;
+        65&nbsp;nm LSTP circuit design
+      </p>
+    </section>
+
+    <!-- ============================================================
+         EDUCATION — copy the .entry block to add more
+         ============================================================ -->
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="entry">
+        <div class="year">2021&nbsp;–&nbsp;Present</div>
+        <div>
+          <h3>Ph.D., Electronics &amp; Communication Engineering</h3>
+          <p class="meta">IIIT-Delhi &middot; Advisor: Prof. Anuj Grover</p>
+          <p class="meta">Thesis: SRAM-based Analog In-Memory Computing for AI/ML Acceleration</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="year">YYYY&nbsp;–&nbsp;YYYY</div>
+        <div>
+          <h3>M.Tech / M.S. — &lt;EDIT: program&gt;</h3>
+          <p class="meta">&lt;EDIT: institution&gt;</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="year">YYYY&nbsp;–&nbsp;YYYY</div>
+        <div>
+          <h3>B.Tech / B.E. — &lt;EDIT: program&gt;</h3>
+          <p class="meta">&lt;EDIT: institution&gt;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PUBLICATIONS — copy the .entry block to add more
+         ============================================================ -->
+    <section id="publications">
+      <h2>Selected Publications</h2>
+
+      <div class="entry">
+        <div class="year">2024</div>
+        <div>
+          <h3>AnalogSim: &lt;EDIT: full paper title&gt;</h3>
+          <p class="meta">Talha, &lt;co-authors&gt;, Anuj Grover</p>
+          <span class="venue">ISCAS 2024</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2023</div>
+        <div>
+          <h3>&lt;EDIT: journal extension title — 10T1C SRAM bitcell for IMC&gt;</h3>
+          <p class="meta">Talha, Belal Iqbal, Anuj Grover</p>
+          <span class="venue">Springer CSSP (under review)</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2022</div>
+        <div>
+          <h3>A 10T1C SRAM Bitcell for In-Memory Computing</h3>
+          <p class="meta">Talha, &lt;co-authors&gt;, Anuj Grover</p>
+          <span class="venue">IEEE AICAS 2022</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HONORS / ACHIEVEMENTS
+         ============================================================ -->
+    <section id="achievements">
+      <h2>Honors &amp; Achievements</h2>
+
+      <div class="entry">
+        <div class="year">YYYY</div>
+        <div>
+          <h3>&lt;EDIT: award or recognition&gt;</h3>
+          <p class="meta">&lt;EDIT: awarding body / short description&gt;</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="year">YYYY</div>
+        <div>
+          <h3>&lt;EDIT: scholarship / fellowship&gt;</h3>
+          <p class="meta">&lt;EDIT: details&gt;</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="year">YYYY</div>
+        <div>
+          <h3>&lt;EDIT: conference travel grant, best paper, etc.&gt;</h3>
+          <p class="meta">&lt;EDIT: details&gt;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <dl class="contact-grid">
+        <dt>Email</dt>
+        <dd><a href="mailto:[email protected]">[email protected]</a></dd>
+
+        <dt>Office</dt>
+        <dd>&lt;EDIT: building, room number&gt;, IIIT-Delhi, New Delhi&nbsp;110020</dd>
+
+        <dt>Scholar</dt>
+        <dd><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></dd>
+
+        <dt>GitHub</dt>
+        <dd><a href="https://github.com" target="_blank" rel="noopener">github.com/your-username</a></dd>
+
+        <dt>LinkedIn</dt>
+        <dd><a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/your-username</a></dd>
+      </dl>
+    </section>
+
+    <footer>
+      <!-- EDIT: footer line (or delete entirely) -->
+      Last updated <span id="last-updated">May&nbsp;2026</span> &middot;
+      Built with HTML &amp; care.
+    </footer>
+
+  </main>
+</body>
+</html>
